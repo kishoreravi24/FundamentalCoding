@@ -1,0 +1,80 @@
+* hashing it is used to store and retrieve data, it involves data mapping, such as keys or values
+* hash function takes input and produces a unique fixed size string of characters called hash code or value, and ideally distributes the hash code uniformly across the available slots in the hash table.
+* hash code as address to retrieval of data becomes faster
+* collision can occur when two or data elements produces same hash code
+* To handle collision, various techniques such as separate chaining or open addressing
+
+separate chaining, uses linked list to add up on the values
+open addressing, uses linear or quadratic probing to save it in the hash table itself.
+
+
+
+
+//hash table and stl
+A hash table and an STL `map` in C++ are both used to store key-value pairs, but they differ in their underlying data structures and performance characteristics.
+
+A hash table, also known as a hash map, uses a hash function to compute the index for storing and retrieving elements. It typically provides faster average-case performance for insertion, deletion, and lookup operations. Here's an example of using a hash table in C++:
+
+```cpp
+#include <iostream>
+#include <unordered_map>
+
+int main() {
+    std::unordered_map<std::string, int> hashMap;
+
+    // Inserting key-value pairs
+    hashMap["apple"] = 5;
+    hashMap["banana"] = 2;
+    hashMap["orange"] = 8;
+
+    // Accessing values
+    std::cout << "Number of apples: " << hashMap["apple"] << std::endl;
+
+    // Modifying values
+    hashMap["banana"] = 10;
+
+    // Checking if a key exists
+    if (hashMap.count("orange") > 0) {
+        std::cout << "The orange key exists." << std::endl;
+    }
+
+    // Removing a key-value pair
+    hashMap.erase("apple");
+
+    return 0;
+}
+```
+
+On the other hand, the STL `map` in C++ is typically implemented as a balanced binary search tree (usually a red-black tree). It guarantees a sorted order of elements based on the keys and provides efficient operations even in worst-case scenarios. Here's an example of using an `map` in C++:
+
+```cpp
+#include <iostream>
+#include <map>
+
+int main() {
+    std::map<std::string, int> mapObj;
+
+    // Inserting key-value pairs
+    mapObj["apple"] = 5;
+    mapObj["banana"] = 2;
+    mapObj["orange"] = 8;
+
+    // Accessing values
+    std::cout << "Number of apples: " << mapObj["apple"] << std::endl;
+
+    // Modifying values
+    mapObj["banana"] = 10;
+
+    // Checking if a key exists
+    if (mapObj.count("orange") > 0) {
+        std::cout << "The orange key exists." << std::endl;
+    }
+
+    // Removing a key-value pair
+    mapObj.erase("apple");
+
+    return 0;
+}
+```
+
+In summary, a hash table provides faster average-case performance but does not guarantee a specific order of elements, while an `map` guarantees a sorted order but may have slightly slower performance. The choice between them depends on the specific requirements of your application.
