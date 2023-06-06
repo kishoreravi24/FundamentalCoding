@@ -1,0 +1,4 @@
+count pairs with given sum
+union of two arrays
+two array are same
+largest consecutive subsequence

@@ -7,6 +7,13 @@
 separate chaining, uses linked list to add up on the values
 open addressing, uses linear or quadratic probing to save it in the hash table itself.
 
+SET:
+The difference is set is used to store only keys while map is used to store key value pairs.
+
+SET and MAP:
+* set and map are ordered containers, while unordered_set and unordered_map are unordered containers.
+* set and map use balanced binary search trees, while unordered_set and unordered_map use hash tables.
+* Time complexity for set and map is O(log n) for most operations, while time complexity for unordered_set and unordered_map is O(1) on average.
 
 
 
