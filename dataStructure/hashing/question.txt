@@ -2,3 +2,6 @@ count pairs with given sum
 union of two arrays
 two array are same
 largest consecutive subsequence
+find triplets with sum zero
+Array_Subset_of_another_array
+Triplet sum in array
