@@ -5,3 +5,6 @@ largest consecutive subsequence
 find triplets with sum zero
 Array_Subset_of_another_array
 Triplet sum in array
+Key pair
+first repeating element
+Frequency of limited range array elements
