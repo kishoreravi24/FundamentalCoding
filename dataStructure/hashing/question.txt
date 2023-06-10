@@ -12,3 +12,4 @@ Largest subarray with 0 sum
 subarray with 0 sum
 Intersection of two arrays
 Find All Four Sum Numbers
+Find all pairs with given sum

@@ -1,0 +1,36 @@
+Design a cache
+
+* Table to store key,value
+* Table operations:
+    SET and GET
+    SET: setting the key and value
+    GET: getting the value from key
+
+* cache design
+  Capacity for the cache
+  Create List to track table
+
+  SET(1,1): checking capacity proceed to setting the value
+  List push front(1)
+
+  SET(2,2): checking capacity proceed to setting the value
+  list push front(2)
+
+  GET(1): print 1
+
+  SET(3,3): checks capacity limit reached
+  list pop back() -> SET(2,2) remove (2,2)
+  erase(2,2)
+  SET(3,3): checking capacity proceed to setting the value
+  List push front(3)
+
+  SET(4,4): check capacity limit reached
+  list pop back() -> SET(1,1) remove (1,1)
+  erase(1,1)
+  SET(4,4): checking capacity proceed to setting the value
+  List push front(4)
+
+  GET(1): return -1
+  GET(4): print 4
+  GET(3): print 3
+
