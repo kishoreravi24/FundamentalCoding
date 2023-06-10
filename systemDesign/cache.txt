@@ -10,10 +10,10 @@ Design a cache
   Capacity for the cache
   Create List to track table
 
-  SET(1,1): checking capacity proceed to setting the value
+  SET(1,1): checking capacity proceed to setting the value & key is already present or not
   List push front(1)
 
-  SET(2,2): checking capacity proceed to setting the value
+  SET(2,2): checking capacity proceed to setting the value & key is already present or not
   list push front(2)
 
   GET(1): print 1
@@ -21,16 +21,18 @@ Design a cache
   SET(3,3): checks capacity limit reached
   list pop back() -> SET(2,2) remove (2,2)
   erase(2,2)
-  SET(3,3): checking capacity proceed to setting the value
+  SET(3,3): checking capacity proceed to setting the value & key is already present or not
   List push front(3)
 
   SET(4,4): check capacity limit reached
   list pop back() -> SET(1,1) remove (1,1)
   erase(1,1)
-  SET(4,4): checking capacity proceed to setting the value
+  SET(4,4): checking capacity proceed to setting the value & key is already present or not
   List push front(4)
 
   GET(1): return -1
   GET(4): print 4
   GET(3): print 3
+
+ IF Key is already present just remove the previous tracker and keep a new track on List .
 
