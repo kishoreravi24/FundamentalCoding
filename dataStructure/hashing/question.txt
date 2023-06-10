@@ -8,3 +8,7 @@ Triplet sum in array
 Key pair
 first repeating element
 Frequency of limited range array elements
+Largest subarray with 0 sum
+subarray with 0 sum
+Intersection of two arrays
+Find All Four Sum Numbers
