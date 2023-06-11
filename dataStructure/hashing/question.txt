@@ -13,3 +13,5 @@ subarray with 0 sum
 Intersection of two arrays
 Find All Four Sum Numbers
 Find all pairs with given sum
+Count subarray with sum 0
+Count distinct element in evey window
