@@ -1,0 +1,39 @@
+https://www.geeksforgeeks.org/why-is-binary-heap-preferred-over-bst-for-priority-queue/
+
+A Heap is a special Tree-based data structure in which the tree is a complete binary tree.
+max and min heap
+event scheduling
+O(logN)
+getMax or getMin
+
+Arr[(i-1)/2]	Returns the parent node
+Arr[(2*i)+1]	Returns the left child node
+Arr[(2*i)+2]	Returns the right child node
+
+Priority Queues: Priority queues can be efficiently implemented using Binary Heap 
+because it supports insert(), delete() and extractmax(), decreaseKey() operations in O(log N) time. 
+
+Binomial Heap and Fibonacci Heap are variations of Binary Heap. 
+These variations perform union also in O(log N) time which is an O(N) operation in Binary Heap.
+
+Advantages:
+Fast access to maximum/minimum element (O(1))
+Efficient Insertion and Deletion operations (O(log n))
+Flexible size
+Can be efficiently implemented as an array
+Suitable for real-time applications
+
+Disadvantages:
+Not suitable for searching for an element other than maximum/minimum (O(n) in worst case)
+Extra memory overhead to maintain heap structure
+Slower than other data structures like arrays and linked lists for non-priority queue operations.
+
+In C++, the std::priority_queue container adapter is implemented as a max heap by default. This means that when you create a std::priority_queue<int>, 
+it will give you a max heap where the maximum element is always at the top.
+
+priority queue(min):
+* std::greater<int> comparison function
+* By passing std::greater<int> as the third template parameter to std::priority_queue, 
+  you are instructing it to use this comparison function and create a min heap.
+* Regarding the second template parameter, std::vector<int>, 
+  it specifies the underlying container to be used by std::priority_queue to store the elements.
