@@ -1,0 +1,20 @@
+Directed graph - self loop / parallel edges
+Simple digraph - no self loop / parallel edges
+graph / non directed graph - no pointing edges , normal connected graph but it is bidirectional
+non - connected graph - have articulation point , if we add edges we can make biconnected components or connected graph
+strongly connected - From starting vertices you can reach ending vertices 
+cyclic graph - starting from 1 and cyclic connecting all graph and comes to 1 again
+Acyclic directed graph - all the vertices are connected but starting from 1 cannont comes to 1 again
+Topological ordering - the edges are going in forward directions, possible in ascyclic directed graph
+
+
+Graph is a collection of vertices and edges,
+circles are vertices and links are edges
+G=(v,e)
+
+Outdegree , number of edges going out from the vertices
+Indegree , number of edges coming inside to the vertices
+
+adjacent, two vertices connected by a edge
+
+without self loop and parallel edges a graph is called as simple graph
