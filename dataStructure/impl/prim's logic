@@ -1,0 +1,55 @@
+first we need to have the graph with vertices and edges, goal is find the minimum spanning tree using prims algorithm implemented via minHeap,
+
+Things needed:
+1) vector of result to store mst values
+2) tracker to keep track where the vertices are visited or not
+3) vector to store the weigth of the graph
+4) priority_queue for heap_queue
+5) startingVertex
+
+Pre-Initilization:
+1) mstValues, size number of vertices and value like 0
+2) tracker , size number of vertices and value like false
+3) weight_tacker, size number of vertices and value like INT_MIN
+4) startingVertex, 0
+4) heap_queue, make_pair(0,startingVertex)
+
+Logic:
+1) Looping the heap_queue until its empty
+2) getting the heap_queue_value	, checking the value in the tracker it is visited or not
+3) if it is visited continue the loop
+4) if not setting the tracker[heap_queue_value]=true
+5) now looping the vertices of the graph
+	* weight=G[heap_queue_value][vertices index]
+	* checking tracker[vertex index]==false not visited and weight < weight_tracker[vertices index]
+	* condition passes: setting the weight_tracker[vertices index] = weight , pushing the weight_tracker[vertices index] and vertices_index in heap_queue, mst[vertices_index]=heap_queue_value
+
+eg: 
+heap_queue(0,0)
+tracker[heap_queue_value] i.e tracker[0] = true
+looping 0->vertices
+weight = graph[heap_queue_value][vertices index] i.e 0,0 0,1 0,2 0,3....
+if tracker[vertices index] not visited && weight < weight_tracker[vertices index] 
+
+i.e tracker[0] == true ,tracker[1] == false, tracker[2] == false...
+&&
+weight < weight_tracker[0] : 0,0 i.e 0<0 ,
+weight < weight_tracker[1] : 0,1 i.e 4<0 ,
+...
+
+weight_tracker[vertices index] = weight
+heap_queue.push(weight_tracker[vertices_index],vertices_index);
+mst[vertices_index] = heap_queue_value;
+
+
+
+additional info:
+
+1. The code initializes the necessary vectors and variables for the Prim's algorithm.
+2. It starts by adding the starting vertex to the heap_queue with a weight of 0.
+3. The main loop continues until the heap_queue is empty.
+4. In each iteration, it retrieves the vertex with the minimum weight (top of the heap_queue) and removes it from the queue.
+5. If the vertex has already been visited (tracked by the tracker vector), it continues to the next iteration.
+6. Otherwise, it marks the vertex as visited by setting tracker[heap_queue_value] to true.
+7. It then iterates through all the vertices in the graph and checks if the current vertex (vertex index) is not visited and if the weight of the edge from the current vertex to the vertex index is smaller than the current weight_tracker value of the vertex index.
+8. If the condition is satisfied, it updates weight_tracker[vertices index] with the new weight, pushes the updated weight and vertex index into the heap_queue, and sets mst[vertices_index] to heap_queue_value, indicating the parent vertex in the minimum spanning tree.
