@@ -18,3 +18,8 @@ Indegree , number of edges coming inside to the vertices
 adjacent, two vertices connected by a edge
 
 without self loop and parallel edges a graph is called as simple graph
+
+
+problems:
+1) Prims using minHeap to find minimum spanning tree
+2) Kruskal using disjoint set to find minimum spanning tree
