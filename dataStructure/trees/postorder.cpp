@@ -22,6 +22,30 @@ int function_postorder(Node* root){
     return 0;
 }
 
+int function_postorder(Node* root){
+    if(root==NULL){
+        return 0;
+    }
+    
+    std::stack<Node*> st;
+    std::stack<int> output;
+    
+    st.push(root);
+    while(!st.empty()){
+        Node* curr = st.top();
+        st.pop();
+        output.push(curr->data);
+        
+        if(curr->left!=NULL){
+            st.push(curr->left);
+        }
+        
+        if(curr->right!=NULL){
+            st.push(curr->right);
+        }
+    }
+}
+
 int main(){
     Node* root = new Node(1);
     root->left = new Node(2);
