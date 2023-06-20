@@ -1,155 +1,23 @@
-//{ Driver Code Starts
-#include <bits/stdc++.h>
-using namespace std;
-#define MAX_HEIGHT 100000
+void bottomView(Node* root){
+    std::queue<std::pair<Node*,int>> q;
+    std::map<int,Node*> map;
+    q.push({root,0});
 
-// Tree Node
-struct Node
-{
-    int data;
-    Node* left;
-    Node* right;
-};
+    while(!q.empty()){
+        Node* curr = q.front().first;
+        mp[q.front().second]=q.front().first;
+        int val = q.front().second;
+        q.pop();
 
-// Utility function to create a new Tree Node
-Node* newNode(int val)
-{
-    Node* temp = new Node;
-    temp->data = val;
-    temp->left = NULL;
-    temp->right = NULL;
-
-    return temp;
-}
-
-
-vector <int> bottomView(Node *root);
-
-// Function to Build Tree
-Node* buildTree(string str)
-{
-    // Corner Case
-    if(str.length() == 0 || str[0] == 'N')
-        return NULL;
-
-    // Creating vector of strings from input
-    // string after spliting by space
-    vector<string> ip;
-
-    istringstream iss(str);
-    for(string str; iss >> str; )
-        ip.push_back(str);
-
-    // Create the root of the tree
-    Node* root = newNode(stoi(ip[0]));
-
-    // Push the root to the queue
-    queue<Node*> queue;
-    queue.push(root);
-
-    // Starting from the second element
-    int i = 1;
-    while(!queue.empty() && i < ip.size()) {
-
-        // Get and remove the front of the queue
-        Node* currNode = queue.front();
-        queue.pop();
-
-        // Get the current node's value from the string
-        string currVal = ip[i];
-
-        // If the left child is not null
-        if(currVal != "N") {
-
-            // Create the left child for the current node
-            currNode->left = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->left);
+        if(curr->left!=NULL){
+            q.push({curr->left,val-1});
         }
-
-        // For the right child
-        i++;
-        if(i >= ip.size())
-            break;
-        currVal = ip[i];
-
-        // If the right child is not null
-        if(currVal != "N") {
-
-            // Create the right child for the current node
-            currNode->right = newNode(stoi(currVal));
-
-            // Push it to the queue
-            queue.push(currNode->right);
+        if(curr->right!=NULL){
+            q.push({curr->right,val+1});
         }
-        i++;
     }
 
-    return root;
-}
-
-
-// } Driver Code Ends
-//Function to return a list containing the bottom view of the given tree.
-
-class Solution {
-public:
-    vector<int> bottomView(Node* root) {
-        if (root == NULL) {
-            return {};
-        }
-        
-        queue<pair<Node*, int>> q;
-        map<int, int> nodeMap;
-        vector<int> vect;
-        
-        q.push({root, 0});
-        while (!q.empty()) {
-            Node* current = q.front().first;
-            int h = q.front().second;
-            q.pop();
-            
-            nodeMap[h] = current->data;
-            
-            if (current->left != NULL) {
-                q.push({current->left, h - 1});
-            }
-            
-            if (current->right != NULL) {
-                q.push({current->right, h + 1});
-            }
-        }
-        
-        for (auto x : nodeMap) {
-            vect.push_back(x.second);
-        }
-        
-        return vect;
+    for(auto i=mp.begin();i!=mp.end();i++){
+        std::cout<<i->second->data<<" ";
     }
-};
-
-
-//{ Driver Code Starts.
-
-int main() {
-    int t;
-    string tc;
-    getline(cin, tc);
-    t=stoi(tc);
-    while(t--)
-    {
-        string s ,ch;
-        getline(cin, s);
-        Node* root = buildTree(s);
-        Solution ob;
-        vector <int> res = ob.bottomView(root);
-        for (int i : res) cout << i << " ";
-        cout << endl;
-    }
-    return 0;
 }
-
-
-
-// } Driver Code Ends
