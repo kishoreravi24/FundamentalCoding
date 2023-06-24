@@ -1,0 +1,42 @@
+Prims:
+	mst -> vector
+	tracker (bool) -> vector
+	weighted_tracker -> vector
+	priority_queue
+		* queue_value
+		* visited[queue_value] needs to  false 
+		* for (0...adj[queue_value])
+		* visited[i]=false + wieght<weight_tracker[i]
+		* weight_tracker[i]=weight , queue push weight_tracker[i],i , mst = queue_value
+
+Kruskal:
+	Edge -> class : vertices,edges,weight
+	Graph -> edgeList, parent, rank
+		* addEdge(vertices,edges,weight)
+		* edgeList.push(Edge edge(obj))
+
+	kruskal -> parent(V,-1) , rank(V,0)
+	sort edgeList by compareEdge weight
+	edgeList -> traversal
+	Disjoint set
+		* find(parent,vertices) != find(parent,edges)
+			* parent[v||E] == -1 or find(parent,parent[v||E])
+		* unionSet(parent,rank,vertices,edges)
+			* s1 = find(parent,V) s2 = find(parent,E)
+			* rank[s1] < rank[s2] : parent[s1] = s2 or rank[s1]>rank[s2] : parent[s2] = s1 else parent[s2]=s1; rank[s1]+=1;
+
+		* mst +=W
+
+Dijkstra:
+	graph, source, distances
+	priority_queue
+	const int INF = std::numeric_limits<int>::max();
+	distance(v,INF)
+	distance[source] = 0
+	pq.push(0,source)
+		* u = pq.top().second , pq.pop()
+		* for(0....V)
+			* if(graph[u][v]!=0 && distances[u]+graph[u][v]<distances[v])
+				* distances[v]=distances[u]+graph[u][v];
+				* pq.push(pair(distance[v],v))
+	print -> distances 

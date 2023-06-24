@@ -33,7 +33,7 @@ public:
 
 			tracker[heap_queue_value] = true;
 
-			for(int vertex=0;vertex<vertices;vertex++){
+			for(int vertex=0;vertex<adj[heap_queue_value].size();vertex++){
 				int weight = G[heap_queue_value][vertex];
 
 				if(tracker[vertex]==false&&weight<weight_tracker[vertex]){
