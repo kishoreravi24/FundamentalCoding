@@ -27,7 +27,9 @@ int startGame(int moves[],int n){
 
 		for(int i=move+1;i<=move+6&&i<n;i++){
 			//checking snake or ladder
-			if(moves[i]!=-1){
+			// 3<22 -> ladder
+			// 17>4 -> snake
+			if(i<moves[i]&&moves[i]!=-1){
 				q.push(std::make_pair(moves[i],distance+1));
 			}else{
 				q.push(std::make_pair(i,distance+1));
