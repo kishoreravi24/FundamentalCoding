@@ -14,7 +14,7 @@ void dijkstra(std::vector<std::vector<int>>& graph,int source,std::vector<int>& 
 		int u = pq.top().second;
 		pq.pop();
 
-		for(int v=0;v<V;v++){
+		for(int v=0;v<5;v++){
 			if(graph[u][v]!=0&&distances[u]+graph[u][v]<distances[v]){
 				distances[v]=distances[u]+graph[u][v];
 				pq.push(std::make_pair(distances[v],v));
@@ -25,7 +25,7 @@ void dijkstra(std::vector<std::vector<int>>& graph,int source,std::vector<int>& 
 
 int main(){
     std::vector<std::vector<int>> vect(V,std::vector<int>(V));
-    int graph[V][V] = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
+    int graph[5][6] = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
                 { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
                 { 0, 8, 0, 7, 0, 4, 0, 0, 2 },
                 { 0, 0, 7, 0, 9, 14, 0, 0, 0 },
