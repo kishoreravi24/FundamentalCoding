@@ -1,18 +1,23 @@
-void checkdfs(int V, std::vector<int> adj[],int start){
-    if(!visited[start]){
-        visited[start]=true;
-        result.push_back(start);
-        for(int i:adj[start]){
-            if(!visited[i]){
-                checkdfs(V,adj,i);
-            }
+std::vector<bool> visited;
+std::vector<int> result;
+
+void checkdfs(int start, std::vector<int> adj[]) {
+    visited[start] = true;
+    result.push_back(start);
+    
+    for (int i : adj[start]) {
+        if (!visited[i]) {
+            checkdfs(i, adj);
         }
     }
 }
-vector<int> dfsOfGraph(int V, vector<int> adj[]) {
-    // Code here
+
+std::vector<int> dfsOfGraph(int V, std::vector<int> adj[]) {
+    visited.resize(V, false);
+    result.clear(); // Clear the result vector before each DFS traversal
+    
     int start = 0;
-    visited.resize(V,false);
-    checkdfs(V,adj,start);
+    checkdfs(start, adj);
+    
     return result;
 }

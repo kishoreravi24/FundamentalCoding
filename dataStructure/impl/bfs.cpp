@@ -12,7 +12,7 @@ public:
 		while(!q.empty()){
 			int u = q.pop();
 			for(int v=1;v<=n;v++){
-				if(G[v][7]==1&&visited[v]==0){
+				if(G[u][v]==1&&visited[v]==0){
 					visited[v]=1;
 					queue_pipe.push(v);
 				}
