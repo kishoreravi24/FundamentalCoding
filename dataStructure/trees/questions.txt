@@ -22,6 +22,10 @@ serialize and deserialize
 leave node to root sum, max values
 Maximum Path Sum between 2 Special Nodes
 merge two bst's
+check_two_trees_are_same
+convert_array_to_bst
+max_depth_using_level_order
+symmetric_tree
 
 --
 least common ancestor in BT
