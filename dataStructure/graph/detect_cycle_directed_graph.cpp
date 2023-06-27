@@ -20,7 +20,10 @@ bool detect_cycle(int V,std::vector<int> adj[]){
 
 	for(int i=0;i<V;i++){
 		if(!visited[i]){
-			if(hasCycle(i,visited,adj,recursion));
+			if(hasCycle(i,visited,adj,recursion)){
+				return true;
+			}
 		}
 	}
+	return false;
 }
