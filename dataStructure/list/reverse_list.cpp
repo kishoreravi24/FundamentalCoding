@@ -36,6 +36,20 @@ public:
         }
         std::cout << std::endl;
     }
+
+    void reverse(){
+        Node* curr = head;
+        Node* prev = NULL;
+        Node* next = NULL;
+
+        while(curr!=NULL){
+            next = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next;
+        }
+        head=prev;
+    }
 };
 
 int main() {
@@ -44,6 +58,10 @@ int main() {
     list.insert(6);
     list.insert(7);
 
+    list.display();
+
+    std::cout<<"\n";
+    list.reverse();
     list.display();
 
     return 0;
