@@ -40,3 +40,9 @@ Dijkstra:
 				* distances[v]=distances[u]+graph[u][v];
 				* pq.push(pair(distance[v],v))
 	print -> distances 
+
+Kosaraju's:
+	* Graph : DFS(G) to compute finish time for each vertex 
+	* Compute transpose of Graph G
+	* call DFS(G^T) on vertices in decreasing order of their finish time
+	* Visit seperate SCC's
