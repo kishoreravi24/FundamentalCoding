@@ -1,0 +1,11 @@
+Dynamic programming:
+
+* Problem can be broken down into smaller subproblems that are solved indepdently, reusing of the subproblems , eg: if 1...1...1 appears , we can use reuse it instead of finding or doing operations on it again.
+* Recursive structure
+* Memoization a dynamic of storing values
+int a[] = new int[5];
+
+Backtracking:
+
+* Explore all possible solutions or combinations, backtracking can be suitable approach.
+* Like DFS explore all solution space.
