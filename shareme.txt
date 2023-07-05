@@ -5,6 +5,34 @@ Dynamic programming:
 * Memoization a dynamic of storing values
 int a[] = new int[5];
 
+* Memoization is a specific form of caching that is used in dynamic programming. The purpose of caching is to improve the performance of our programs and keep data accessible that can be used later
+
+eg:
+int fact(int n){
+	if(n==0){
+		return 1;
+	}
+	return n*fact(n-1);
+}
+
+How Memoization can help with such problems?
+
+If we notice in the above problem, while calculation factorial of 9: 
+
+* We are calculating the factorial of 2
+* We are also calculating the factorial of 3,
+and We are calculating the factorial of 5 as well
+
+How to solve a Dynamic Programming Problem ?
+
+* Overlapping Subproblems
+* Optimal Substructure Property - The Shortest Path problem has the following optimal substructure property.
+
+overlapping subproblems: breaking complex problems into small problems and reuse the value when its appearing again.
+
+optimal substructure: we can find a solution for a problem from its subproblem itself
+
+
 Backtracking:
 
 * Explore all possible solutions or combinations, backtracking can be suitable approach.
