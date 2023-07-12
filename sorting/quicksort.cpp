@@ -10,7 +10,7 @@ class Solution
         int pivot = nums[high];
         int i = low-1;
         
-        for(int j=low;j<=high;j++){
+        for(int j=low;j<high;j++){
             if(nums[j]<=pivot){
                 i++;
                 swap(&nums[i],&nums[j]);
