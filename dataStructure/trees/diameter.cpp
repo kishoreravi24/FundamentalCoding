@@ -23,6 +23,6 @@ class Solution {
         int ld = diameter(root->left);
         int rd = diameter(root->right);
         
-        return std::max({ld, rd, lh + rh + 1});
+        return std::max({ld, rd, lh + rh});
     }
 };
