@@ -1,12 +1,12 @@
 //Function to return list containing vertices in Topological order. 
 void dfs(std::vector<bool>& visited,int u, std::stack<int>& stack,std::vector<int> adj[]){
     visited[u]=true;
-    stack.push(u);
     for(int index:adj[u]){
         if(!visited[index]){
             dfs(visited,index,stack,adj);
         }
     }
+    stack.push(u);
 }
 vector<int> topoSort(int V, vector<int> adj[]) 
 {
