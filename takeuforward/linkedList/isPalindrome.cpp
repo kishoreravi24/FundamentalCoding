@@ -1,48 +1,47 @@
-LinkedListNode<int>* getMid(LinkedListNode<int> *head){
-    LinkedListNode<int> *slow = head;
-    LinkedListNode<int> *fast = head->next;
-
-    while(fast != NULL && fast->next != NULL){
-        fast = fast->next->next;
-        slow = slow->next;
+class Solution {
+public:
+    ListNode* getMid(ListNode* temp) {
+        ListNode* fast = temp->next;
+        ListNode* slow = temp;
+        while (fast != NULL && fast->next != NULL) {
+            fast = fast->next->next;
+            slow = slow->next;
+        }
+        return slow;
     }
 
-    return slow;
-}
+    bool isPalindrome(ListNode* head) {
+        if (head == NULL || head->next == NULL) {
+            return true;
+        }
+        
+        ListNode* temp = head;
+        ListNode* mid = getMid(temp);
+        if(mid==NULL){
+            return true;
+        }
 
-LinkedListNode<int> * reverse(LinkedListNode<int> *temp){
-    LinkedListNode<int> *curr = temp;
-    LinkedListNode<int> *prev = NULL;
-    LinkedListNode<int> *forward = NULL;
+        ListNode* reverse = mid->next;
+        
+        // Reverse
+        ListNode *next = NULL;
+        ListNode *prev = NULL;
+        while (reverse) {
+            next = reverse->next;
+            reverse->next = prev;
+            prev = reverse;
+            reverse = next;
+        }
 
-    while(curr != NULL){
-        forward = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = forward;
-    }
-    return prev;
-}
-
-bool isPalindrome(LinkedListNode<int> *head) {
-    if(head == NULL || head->next == NULL){
+        ListNode* temp1 = head;
+        ListNode* temp2 = prev;
+        while (temp2 != NULL) {
+            if (temp2->val != temp1->val) {
+                return false;
+            }
+            temp1 = temp1->next;
+            temp2 = temp2->next;
+        }
         return true;
     }
-
-    LinkedListNode<int>* mid = getMid(head);
-    LinkedListNode<int>* temp1 = mid->next;
-    mid->next = reverse(temp1);
-
-    temp1 = head;
-    LinkedListNode<int>* temp2 = mid->next;
-
-    while(temp2 != NULL){
-        if(temp1->data != temp2->data){
-            return false;
-        }
-        temp1 = temp1->next;
-        temp2 = temp2->next;
-    }
-
-    return true;
-}
+};

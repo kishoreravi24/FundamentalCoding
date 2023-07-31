@@ -1,44 +1,40 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
 class Solution {
 public:
-    int getCount(ListNode* head,int n){
-        int count=1;
-        ListNode* temp=head;
+    int getHeight(ListNode* temp){
+        int height = 0;
         while(temp!=NULL){
-            count++;
-            temp=temp->next;
+            height++;
+            temp = temp->next;
         }
-        return count;
+        return height;
     }
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-        int count = getCount(head,n);
-        int counter=0;
-        ListNode* prev = nullptr;
-        ListNode* next = nullptr;
         ListNode* temp = head;
-        if(count-1==1){
-            return prev;
+        int height = getHeight(temp);
+        int size = height-n;
+        if(size == 0){
+            ListNode* newHead = head->next;
+            delete head;
+            return newHead;
         }
-        count=count-n;
-        if(count==1){
-            next=head->next;
-            head=nullptr;
-            head=next;
-            return head;
+        ListNode* result = head;
+        ListNode* temp1 = result;
+        for(int i=0;i<size-1;i++){
+            temp1 = temp1->next;
         }
-        while(temp!=NULL){
-            counter++;
-            prev=temp;
-            next=temp->next;
-            if(counter+1==count){
-                std::cout<<counter+1<<" "<<count<<"\n";
-                std::cout<<prev->val<<" "<<next->val<<"\n";
-                temp=nullptr;
-                temp=prev;
-                temp->next=next->next;
-            }else{
-                temp=temp->next;
-            }
-        }
-        return head;
+        ListNode* remove = temp1->next;
+        temp1->next = remove->next;
+        delete remove;
+        return result;
     }
 };
