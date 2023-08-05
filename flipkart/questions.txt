@@ -1,0 +1,24 @@
+Flipkart
+
+Design a leaderboard - done
+Text Justification - done
+Longest palindromic substring - done - check dp
+Sliding window maximum - done
+minimum number of arrows to burst balloons - done
+Merge intervals - done
+Maximum subarray - done
+Number of students unable to eat lunch
+shortest path in a grid with obstacles elimination - done - check again
+search in rotated sorted array - done
+number of ways to stay in the same place after some steps - done
+middle element in the linked list - done
+exam room
+Best time to buy and sell stocks
+minimum time to complete trips
+LRU cache
+Bus routes
+Bottom view of binary tree
+kth largest element in a stream
+make array non decreasing or non increasing
+Kth element in a sorted array
+My calender
