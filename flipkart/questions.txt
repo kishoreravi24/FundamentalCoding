@@ -13,7 +13,7 @@ search in rotated sorted array - done
 number of ways to stay in the same place after some steps - done
 middle element in the linked list - done
 exam room
-Best time to buy and sell stocks
+Best time to buy and sell stocks - done
 minimum time to complete trips
 LRU cache
 Bus routes
