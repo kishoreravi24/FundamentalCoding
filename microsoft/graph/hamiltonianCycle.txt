@@ -1,0 +1,37 @@
+hamiltonian cycle:
+
+input graph
+v -> numberOfVertices
+vector<int> path(v,-1)
+path[0]=0 -> set source
+checkCycle (function):
+	arguments : 1,graph,path,v
+
+	k=1,graph,path,v
+
+	if k==v //cycle found
+		graph[path[k-1]][path[0]]==1
+			return true
+		else
+			return false
+	else:
+		i = 1...v
+		// check path is valid
+		isValid(i,path,graph,k):
+			graph[path[k-1][i]]==0
+				return false
+
+			j=0...k
+			path[j]==i
+				return false
+
+		return true
+
+		if isValid true:
+			path[k]=i
+			if(checkCycle(k+1,path,graph,v)==true)
+				return true
+		else
+			path[k]=-1
+
+print path

@@ -1,0 +1,25 @@
+Graph
+
+Traversal:
+
+Bfs - breath first search, used for serach every node at certain depth level and we can get the shortest path in first search itself
+
+Dfs - depth first search, used for search every node at one branch deeply
+
+Tropological sort:
+- Directed acyclic graph
+
+shortest path:
+
+- Dijkstra , we need weight works on both directed and undirected no cycle
+- Floyd warshall - handle cycles , on both positive and negative edge weights
+
+Minimum spanning tree:
+- prims - undirected graph, no cycles
+- kruskal - undirected graph, no cycles
+
+strongly connected components - directed only, because of implementing topological sort
+
+detect cycle in directed - use recursion[parent]
+detect cycle in undirected - use parent = -1
+

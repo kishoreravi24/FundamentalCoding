@@ -1,4 +1,4 @@
-Implement a trie (prefix tree) data structure.
+Implement a trie (prefix tree) data structure. - done
 Find the longest increasing subsequence in an array.
 Implement a graph traversal algorithm that visits each node only once.
 Determine if a directed graph has a cycle.
