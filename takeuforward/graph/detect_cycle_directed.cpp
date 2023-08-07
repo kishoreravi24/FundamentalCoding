@@ -11,6 +11,7 @@ bool hasCycle(std::vector<bool> &visited,int &start,std::vector<int> adj[],std::
             return true;
         }
     }
+    recursion[start]=false;
     return false;
 }
 bool detect_cycle(int V,std::vector<int> adj[]){

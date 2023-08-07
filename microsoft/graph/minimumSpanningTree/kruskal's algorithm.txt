@@ -1,0 +1,34 @@
+kruskal's algorithm:
+
+convert adj list to edg List -> {wt,{i,vertices}}
+sort by wt
+
+parent(v,-1)
+rank(v,-1)
+weight
+Traverse edgeList
+	v = verties
+	w = wt
+	u = edges
+
+	disjoint set, 
+		findParent(parent,v)
+		findParent(parent,e)
+			findParent(parent,v):
+				if(parent[v]==-1)
+					return v
+				findParent(parent,parent[v])
+
+		set(parent,rank,v,e)
+			s1=findParent(parent,v)
+			s2=findParent(parent,e)
+			if(rank[s1]<rank[s2]){
+				parent[s1]=s2
+			}else if(rank[s1]>rank[s2]){
+				parent[s2]=s1
+			}else{
+				parent[s2]=s1
+				rank[s1]+=1
+			}
+
+	weight+=w

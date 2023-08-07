@@ -1,0 +1,21 @@
+Implement a trie (prefix tree) data structure.
+Find the longest increasing subsequence in an array.
+Implement a graph traversal algorithm that visits each node only once.
+Determine if a directed graph has a cycle.
+Find the maximum sum subarray in an array.
+Implement Dijkstra's algorithm to find the shortest path in a weighted graph.
+Find the kth smallest element in a binary search tree.
+Implement a binary search tree with the ability to find the median in constant time.
+Solve the N-Queens problem, where you have to place N queens on an N×N chessboard without them attacking each other.
+Implement an algorithm to calculate the edit distance between two strings.
+Implement a data structure that supports constant time insertion, deletion, and finding the median.
+Find the longest common subsequence between two strings.
+Implement an algorithm to find all possible permutations of a given set of numbers.
+Determine if a binary tree is balanced (i.e., the heights of the two subtrees of any node never differ by more than 1).
+Implement an efficient algorithm to find all prime numbers up to a given number.
+Find the maximum path sum in a binary tree, where the path can start and end at any node.
+Implement an algorithm to reverse the order of words in a sentence.
+Implement a data structure for efficiently finding the frequency of elements in a sliding window of a given array.
+Solve the knapsack problem, where you have to find the maximum value that can be obtained by selecting items from a set without exceeding a given weight.
+Implement a suffix tree data structure and use it to find the longest repeated substring in a string.
+
