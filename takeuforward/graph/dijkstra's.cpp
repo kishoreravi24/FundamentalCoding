@@ -11,8 +11,7 @@ class Solution
         std::vector<int> distance;
         
         distance.resize(V,INF);
-        dista
-        
+        distance[S] = true;
         pq.push({0,S});
         
         while(!pq.empty()){
