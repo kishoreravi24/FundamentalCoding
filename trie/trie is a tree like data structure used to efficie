@@ -1,0 +1,15 @@
+trie is a tree like data structure used to efficiently store and retrieve a dynamic set of strings or sequences - it is used for tasks like string manipulation,string dictionary, insertion,search full text, search substring.
+
+time & space complexity:
+insertion O(k) and O(n*m)
+search O(k) and O(1)
+
+other types of trie
+
+compressed Trie(Paritica tries or Radix tries):
+	aim to reduce memory storages by merging common prefixes.
+	more efficient
+	but still O(K), but in some cases there are fewer nodes to traverse
+suffix trie
+	okay if not providing of a keywords if providing a single word we need to do suffix trees
+	same like time and space complexity

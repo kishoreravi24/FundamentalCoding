@@ -18,8 +18,8 @@ Implement a data structure for efficiently finding the frequency of elements in 
 Solve the knapsack problem, where you have to find the maximum value that can be obtained by selecting items from a set without exceeding a given weight.
 Implement a suffix tree data structure and use it to find the longest repeated substring in a string.
 
-Implement an efficient algorithm to find all prime numbers up to a given number.
-Implement an algorithm to find all possible permutations of a given set of numbers.
-Implement an algorithm to reverse the order of words in a sentence.
+Implement an efficient algorithm to find all prime numbers up to a given number. - done sieveOferatosthense
+Implement an algorithm to find all possible permutations of a given set of numbers. - done
+Implement an algorithm to reverse the order of words in a sentence. - done
 knapsack
-suffix tree
+suffix tree - done
