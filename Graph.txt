@@ -23,3 +23,8 @@ strongly connected components - directed only, because of implementing topologic
 detect cycle in directed - use recursion[parent]
 detect cycle in undirected - use parent = -1
 
+Hamiltonian Path (Undirected Graphs): This is a path that visits each vertex exactly once. It can exist even if the graph contains cycles.
+
+Hamiltonian Cycle (Undirected Graphs): This is a cycle that visits each vertex exactly once and returns to the starting vertex. A Hamiltonian cycle implies a Hamiltonian path, as you can remove any edge from the cycle to convert it into a path.
+
+Hamiltonian Circuit (Directed Graphs): This is a directed cycle that visits each vertex exactly once and returns to the starting vertex.
