@@ -1,0 +1,7 @@
+Dp -> dynamic programming it is like a technique to solve the problem by dynamically solve the sub problems and merge it to get the answer
+
+two types:
+
+1) Memoization - (top - Down)
+2) Tabulation - (bottom - up)
+
