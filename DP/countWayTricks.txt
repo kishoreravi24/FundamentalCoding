@@ -1,0 +1,11 @@
+count way tricks:
+
+fun() {
+	if(index<0){
+		// Base condition
+		return 1 or 0; // depends on the problem
+	}
+	int l = fun(index+1);
+	int r = fun(index+2);
+	return l+r;
+}

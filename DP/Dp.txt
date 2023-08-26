@@ -5,3 +5,17 @@ two types:
 1) Memoization - (top - Down)
 2) Tabulation - (bottom - up)
 
+Recursion:
+1) express all terms in indexes (i,j) for 2d
+2) explore all stuffs
+3) sum up all ways / max, minimal
+
+Memoization - dp : start from m-1 , n-1 start from (end to start) i.e m-1, n-1 to 0, 0
+
+
+Memoization - tabulation:
+	1) Declare base cases
+	2) express all states in for loop
+	3) copy the resource and write
+
+If there is previous row and previous column we can space optimize it.
