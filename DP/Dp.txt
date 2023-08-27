@@ -19,3 +19,17 @@ Memoization - tabulation:
 	3) copy the resource and write
 
 If there is previous row and previous column we can space optimize it.
+
+problems:
+fixed start - fixed end (unique paths)
+fixed start - not fixed end (Triangle)
+not fixed end - not fixed end (Maximum/Minimum Falling path sum)
+
+return 1e9 instead of INT_MAX and -1e9 instead of INT_MIN // 1e8
+if we return INT_MIN it added to the sum INT , so negative + integer will give INT_MIN
+
+1D - climbingStars
+2D - uniquePath
+3D - cherry Pickup
+
+Always write out of bound first then base case
