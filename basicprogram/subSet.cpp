@@ -1,18 +1,20 @@
-#include<bits/stdc++.h>
-void solve(char input[],int n,std::string res,int index){
-    if(index>=n){
-        std::cout<<res<<" ";
-        std::cout<<"\n";
+class Solution {
+public:
+    void printSubSet(std::vector<int> nums,std::vector<int> helper,std::vector<std::vector<int>> &res, int index){
+        if(index==nums.size()){
+            res.push_back(helper);
+            return;
+        }
+        helper.push_back(nums[index]);
+        printSubSet(nums,helper,res,index+1);
+        helper.pop_back();
+        printSubSet(nums,helper,res,index+1);
         return;
     }
-    solve(input,n,res,index+1);
-    res.push_back(input[index]);
-    solve(input,n,res,index+1);
-    return;
-}
-void printSubsequences(char input[]) {
-    // Write your code here
-    std::string res = "";
-    int n = strlen(input);
-    solve(input,n,res,0);
-}
+    vector<vector<int>> subsets(vector<int>& nums) {
+        std::vector<int> helper;
+        std::vector<std::vector<int>> res;
+        printSubSet(nums,helper,res,0);
+        return res;
+    }
+};
