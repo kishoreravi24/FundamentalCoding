@@ -1,42 +1,27 @@
-#include<bits/stdc++.h>
-
-void solve(std::vector<int> &nums, std::vector<int> &permutation, int index, std::vector<int> &res) {
-    if (index == nums.size()) {
-        if (nums > permutation) {
-            res.assign(nums.begin(), nums.end());
+#include <bits/stdc++.h> 
+vector<int> nextPermutation(vector<int> &permutation, int n)
+{
+    //Find inversion point
+    int k,l;
+    for(k=n-2;k>=0;k--){
+        if(permutation[k]<permutation[k+1]){
+            break;
         }
-        return;
     }
-    
-    for (int i = index; i < nums.size(); i++) {
-        std::swap(nums[index], nums[i]);
-        solve(nums, permutation, index + 1, res);
-        std::swap(nums[index], nums[i]);
-    }
-    return;
-}
-
-int main() {
-    std::vector<int> permutation = {1, 2, 3};
-    int n;
-    std::cin >> n;
-    
-    std::vector<int> res;
-    std::vector<int> nums;
-    for (int i = 1; i <= n; i++) {
-        nums.push_back(i);
-    }
-    
-    solve(nums, permutation, 0, res);
-    
-    if (!res.empty()) {
-        for (auto index : res) {
-            std::cout << index << " ";
+    if(k<0){
+        std::reverse(permutation.begin(),permutation.end());
+        return permutation;
+    }else{
+        //end of perm to inversion point
+        for(l=n-1;l>k;l--){
+            if(permutation[l]>permutation[k]){
+                break;
+            }
         }
-    } else {
-        std::cout << "No next permutation found." << std::endl;
+        //swap the inversion point and perm value
+        std::swap(permutation[l],permutation[k]);
+        //reverse it
+        std::reverse(permutation.begin()+k+1,permutation.end());
+        return permutation;
     }
-    
-    std::cout << "\n";
-    return 0;
 }
