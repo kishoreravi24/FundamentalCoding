@@ -13,28 +13,31 @@ public:
     int getHeight(ListNode* temp){
         int height = 0;
         while(temp!=NULL){
-            height++;
             temp = temp->next;
+            height++;
         }
         return height;
     }
     ListNode* removeNthFromEnd(ListNode* head, int n) {
         ListNode* temp = head;
         int height = getHeight(temp);
-        int size = height-n;
-        if(size == 0){
+        int removal = height-n-1;
+        
+        if (removal < 0) {
             ListNode* newHead = head->next;
             delete head;
             return newHead;
         }
-        ListNode* result = head;
-        ListNode* temp1 = result;
-        for(int i=0;i<size-1;i++){
-            temp1 = temp1->next;
+        
+        ListNode* removalList = head;
+        
+        while(removal>0){
+            removalList = removalList->next;
+            removal--;
         }
-        ListNode* remove = temp1->next;
-        temp1->next = remove->next;
-        delete remove;
-        return result;
+        ListNode* removeNext = removalList->next;
+        removalList->next = removeNext->next;
+        delete removeNext;
+        return head;
     }
-};
+};};

@@ -1,83 +1,68 @@
 #include<bits/stdc++.h>
-/*
-Strongly connected components
-Kosaraju's algorithm
-Graph -> adj List -> DFS -> store result in stack -> Transponse a graph -> do dfs with stack on transposed graph -> print the result vect.
-*/
-void dfs(int start,std::vector<bool>& visited,std::stack<int>& st,std::vector<std::vector<int>>& adj){
-	visited[start] = true;
-	st.push(start);
-	for(int index:adj[start]){
-		if(!visited[index]){
-			dfs(index,visited,st,adj);
-		}
-	}
-	return;
+void topologicalSort(std::vector<int> adj[],std::vector<bool> &visited,std::stack<int> &st,int start){
+    visited[start]=true;
+    st.push(start);
+    for(auto index:adj[start]){
+        if(!visited[index]){
+            topologicalSort(adj,visited,st,index);
+        }
+    }
+    
+    return;
 }
-std::vector<std::vector<int>> transposeGraph(std::vector<std::vector<int>> edges){
-	std::vector<std::vector<int>> adj(edges.size());
-	for(auto index:edges){
-		int u = index[0];
-		int v = index[1];
-
-		adj[v].push_back(u);
-	}
-	return adj;
+std::vector<std::vector<int>> transposeG(std::vector<std::vector<int>> edges) {
+    int V = edges.size();
+    std::vector<std::vector<int>> reverseAdj(V);
+    for (auto index : edges) {
+        int u = index[0];
+        int v = index[1];
+        reverseAdj[v].push_back(u);
+    }
+    return reverseAdj;
 }
-std::vector<int> dfsForReverseGraph(int start,std::vector<bool>& visited,std::vector<std::vector<int>>& adj,std::vector<int>& result){
-	visited[start]=true;
-	result.push_back(start);
-	for(auto index:adj[start]){
-		if(!visited[start]){
-			dfsForReverseGraph(index,visited,adj,result);
-		}
-	}
-	return;
+void checkDfs(std::vector<std::vector<int>> &reverseAdj,int start,std::vector<bool> &visited,std::vector<int> &result){
+    visited[start]=true;
+    result.push_back(start);
+    for(auto index:reverseAdj[start]){
+        if(!visited[index]){
+            checkDfs(reverseAdj,index,visited,result);
+        }
+    }
+    return;
 }
-void stronglyConnectedComponents(std::vector<std::vector<int>> edges,int v,std::vector<std::vector<int>>& adj){
-	std::vector<bool> visited(v,false);
-	std::vector<std::vector<int>> reverse_adj;
-	std::stack<int> st;
-	std::vector<int> result;
-
-	dfs(0,visited,st,adj);
-	// while(!st.empty()){
-	//     std::cout<<st.top()<<" ";
-	//     st.pop();
-	// }
-	// std::cout<<"\n";
-
-/*
-	* so far converted a graph into adjacency List, do a dfs for the list and we have the result in the stack
-	* now, transpose the graph and do the dfs for each stack value
-*/
-
-	reverse_adj=transposeGraph(edges);
-    visited.assign(v, false);
+int stronglyConnectedComponents(std::vector<std::vector<int>> edges,std::vector<int> adj[]){
+    int V = edges.size();
+    //Topological sort
+    std::vector<bool> visited(V,false);
+    std::stack<int> st;
+    
+    for(int i=0;i<V;i++){
+        if(!visited[i]){
+            topologicalSort(adj,visited,st,i);
+        }
+    }
+    
+    //reverseAdj
+    std::vector<std::vector<int>> reverseAdj = transposeG(edges);
+    
+    visited.assign(V,false);
+    std::vector<int> result;
     while(!st.empty()){
-    	int u = st.pop();
-    	dfsForReverseGraph(u,visited,reverse_adj,result);
+        int u = st.top();
+        if(!visited[u]){
+            checkDfs(reverseAdj,u,visited,result);
+            for(auto index:result){
+                std::cout<<index<<" ";
+            }
+            result.clear();
+        }
+        st.pop();
     }
-
-    for(auto index: result){
-    	std::cout<<index<<" ";
-    }
-
-	return;
+    return 0;
 }
 int main(){
     std::vector<std::vector<int>> edges = {{0,1},{1,2},{2,0},{1,3},{3,4},{4,5},{5,3},{5,6}};
-    std::vector<std::vector<int>> adj(edges.size());
-    //converting edges into adjacency lists
-    for(auto index:edges){
-    	int u = index[0];
-    	int v = index[1];
-
-    	adj[u].push_back(v);
-    	adj[v].push_back(u);
-    }
-
-    stronglyConnectedComponents(edges,edges.size(),adj);
+    std::vector<int> adj[edges.size()];
+    stronglyConnectedComponents(edges,adj);
+    return 0;
 }
-
-//output: 6 5 4 3 2 1 0
