@@ -40,4 +40,4 @@ public:
         delete removeNext;
         return head;
     }
-};};
+};
